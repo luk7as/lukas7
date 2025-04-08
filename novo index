@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Lucas Pereira">
+    <meta name="keywords" content="html,css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+</head>
+<body>  
+    <h1 <main style="border:solid 12px blue ;"> </main> >
+    <a href="quemsomos.html"> Quem somos</a>
+    <a href="lista.html"> Lista</a>
+    <a href="forms.html"> Formulario</a>
+    <a href="menu.html">Produtos</a>
+
+
+    <header style="border:solid 2px red;">
+     <h2> Nome    Sobre    Contato</h2>
+     <nav> 
+        <a href="https://www.olx.com.br/autos-e-pecas/carros-vans-e-utilitarios/estado-pr?pe=10000&lis=home_body_search_bar_2020"> compre seu carro</a>
+        <a href="https://www.noticiasautomotivas.com.br/veja-mais-de-100-opcoes-de-carros-abaixo-de-10000-reais/ "> melhores preços</a>
+        <a href="https://reviewauto.com.br/carros-ate-10-mil/ "> venha conferir </a>
+     </nav>
+    </header>
+
+
+    <main style="border:solid 2px rgb(124, 1, 1);">
+    <h2> Compre seu carro </h2>
+    <img src="skyline.jfif" alt="200">
+    </main>
+
+    <footer style="border:solid 2px rgb(58, 4, 0);">
+    <h2> rodape </h2>
+    </footer>
+
+    <h1>Carros novos</h1>
+    <p> Nos melhores preços</p>
+
+    <h2>Carros seminovos</h2>
+    <p>até 100,000,00 reais</p>
+    <p id="123"> teste </p>
+
+    <h3>Carros usados</h3>
+    <p>Todos os modelos</p>
+    <address> Somente aqui</address>
+
+    <h4> Também temos peças para carros</h4>
+    <p><strong> Todos os modelos</strong></p>
+
+    <h5> Acessórios para carros</h5>
+    <p><mark> Todos os tipos</mark></p>
+
+    <h6>Vendemos carros hibridos e elétricos também</h6>
+    <p><em> Venha conferir </em></p>
+    <hr/>
+    <p> A loja mais completa do Brasil<br/>
+
+<img  width="200px" src="OIP.jfif">
+    <p>largura width= tamanho em pixel ou %</p>
+       <p>altura heigth= tamanho em pixel ou %</p>
+
+<img width="200" src="carro.jpg">
+<p>largura width= 200px(pixel)</br>
+altura width= 200px(pixel) </p>
+
+    <a href="https://carros.peugeot.com.br/gama/peugeot-partner-rapid.html?gclid=8e146f4e6a5a1d2d20f208bbc8df47f3&gclsrc=3p.ds&msclkid=8e146f4e6a5a1d2d20f208bbc8df47f3&utm_source=bing&utm_medium=cpc&utm_campaign=B%2Fe%20-%20Peugeot%20-%20PSQ%20-%20Utilit%C3%A1rios&utm_term=pre%C3%A7o%20peugeot%20rapid&utm_content=RM%20-%20Produto%20-%20Partner%20Rapid" target="_blank"> Novidades </a>
+    <img src="skyline.jfif" alt="200">
+</body>
+</html>
