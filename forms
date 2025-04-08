@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formularios </title>
+</head>
+<body>
+    <h1 <main style="border:solid 12px blue ;"> </main> >
+        <a href="index.html"> inicio </a>
+        <a href="quemsomos.html"> quem somos</a>
+        <a href="lista.html"> lista</a>
+        <a href="menu.html">Produtos</a>
+       
+<h1 <main style="border:solid 12px blue ;"> </main> > Formularios </h1>
+
+        <form action="">conteudo</form>
+        <label for="txt-nome">Nome</label>
+        <input type="text" id="txt-nome"/>
+        <div> </div>
+
+        <label for="txt-date">Data atual</label>
+        <input type="date" id="txt-date"/>
+        <div> </div>
+
+        <!-- <label for="txt-number"> Idade
+         </label> --> Idade
+        <input type="number" id="txt-nome"/>
+        <div> </div>
+
+        <label for="txt-checkbox"> carro novo</label>
+        <input type="checkbox" id=" txt-checkbox"/>
+        <label for="txt-checkbox"> carro seminovo </label>
+        <input type="checkbox" id=" txt-checkbox"/>
+        <label for="txt-checkbox"> carro usado </label>
+        <input type="checkbox" id=" txt-checkbox"/>
+        <div> </div>
+
+        <label for="txt-marcador1">compra de carro</label>
+        <input type="radio" id=" txt-marcador1" name="txt-marcador1"/>
+        <label for="txt-marcador1">compra de peça </label>
+        <input type="radio" id=" txt-marcador1" name=" txt-marcador1"/>
+        <label for="txt-marcador1">compra de acessorio</label>
+        <input type="radio" id=" txt-marcador1" name="txt-marcador1"/>
+        <div> </div>
+
+        <label for="button"> Turma A</label>
+        <input type="button" name="turma A" id="button" value="X">
+
+        <label for="button"> Turma B</label>
+        <input type="button" name="turma B" id="button" value="X">
+
+        <label for="button"> Turma C</label>
+        <input type="button" name="turma C" id="button" value="X">
+        <div> </div>
+
+        <form>
+            <label for="username">Usuario:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="pwd">Senha:</label><br>
+            <input type="password" id="pwd" name="pwd">
+          </form>
+
+          <div> </div>
+        <label for=" sl-uf">Estado</label>
+        <select id="sl-uf">
+        <option value=" PR">Paraná</option>
+        <option value="SC">Santa Catarina</option>
+        </select>
+
+        <div></div>
+        <textarea name="entre em contato" id="contato"></textarea>
+
+        <img src="skyline.jfif" alt="200">
+        
+
+</body>
+</html>
