@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="produros.css">
+    <title>Meu site</title>
+    
+<style>
+    header nav> a :hover{
+
+        background-color: rgb(53, 53, 53);
+        font-weight: bold;
+    }
+    header>{
+        display: flex;
+        background-color: aqua;
+       align-items: center;
+       justify-content: center;
+    }
+    main{
+        background-color: aquamarine;
+    }
+    body{
+        margin: 0%;
+    }
+    
+    .lista-de-produtos>div{
+       border: solid 2px rgb(0, 247, 255);
+       width: 10%;
+      }
+       
+        .lista-de-produtos>div{
+          display: flex;
+          justify-content: space-around;
+        }
+         
+        .lista-de-produtos>div>h4{
+            background-color: aqua;
+        }
+    
+</style>
+</head>
+<body>
+<header>
+    <nav>
+
+    <main style="border:solid 12px rgb(0, 110, 255) ;">
+    
+    <a href="index.html"> inicio </a>
+       <a href="quemsomos.html"> quem somos</a>
+        <a href="lista.html"> lista</a>
+        <a href="forms.html">Formulario</a>
+</main>
+      
+       <h1> Lista de Produtos</h1>
+      
+        <section class="lista-de-produtos">
+            <div>
+                <h4>Produto 01 </h4>
+                    <p>produto 01</p>
+                    <h3>35,000,00</h3>
+                
+            </div>
+            <div>
+                <h4>Produto 02 </h4>
+                <p>produto 02</p>
+                <h3>36,000,00</h3>
+            </div>
+            <div>
+                <h4>Produto 03 </h4>
+                <p>produto 03</p>
+                <h3>38,000,00</h3>
+            </div>
+            <div>
+                <h4>Produto 04 </h4>
+                <p>produto 04</p>
+                <h3>40,000,00</h3>
+            </div>
+        </section>
+
+      </div>
+    </nav>
+</header>
+</body>
+</html>
