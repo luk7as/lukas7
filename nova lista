@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu site</title>
+</head>
+<body>
+    <h1 <main style="border:solid 12px blue ;"> </main> >
+    <a href="index.html"> Inicio</a>
+    <a href="quemsomos.html"> Que somos</a>
+    <a href="forms.html"> Formulario</a>
+    <a href="menu.html">Produtos</a>
+
+    <h1> Lista de carros</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>novos</th>
+                <th>seminovos</th>
+                <th>usados</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th> até 300,000,00</th>
+                <th>até 100,000,00</th>
+                <th>até 150,000,00</th>
+            </tr>
+        </tbody>
+    </table>
+    <img src="skyline.jfif" alt="200">
+</body>
+</html>
