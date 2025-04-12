@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Textos Humanizados</title>
+  <style>
+    /* Estilo geral */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background: linear-gradient(45deg, #000000, #222222);
+      color: white;
+      overflow: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+    /* Tema Light */
+    body.light {
+      background: linear-gradient(45deg, #ffffff, #cccccc);
+      color: black;
+    }
+    /* Inputs e Textareas */
+    input, textarea {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #333;
+      color: white;
+      border: 2px solid #555;
+      border-radius: 5px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    body.light input, 
+    body.light textarea {
+      background-color: #f0f0f0;
+      color: black;
+      border: 2px solid #aaa;
+    }
+    input:focus, textarea:focus {
+      border-color: yellow;
+      box-shadow: 0 0 10px yellow;
+      outline: none;
+    }
+    /* Botões */
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+    /* Mensagem de boas-vindas */
+    #boasVindas {
+      font-size: 36px;
+      font-weight: bold;
+      color: yellow;
+      text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px orange;
+      animation: brilho 1.5s infinite alternate;
+      margin-bottom: 20px;
+    }
+    /* Animação de brilho */
+    @keyframes brilho {
+      from {
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px orange;
+      }
+      to {
+        text-shadow: 0 0 15px yellow, 0 0 25px yellow, 0 0 35px orange;
+      }
+    }
+    /* Seção de tema, pontuação e compartilhamento */
+    #score-container {
+      margin-top: 10px;
+    }
+    #share-buttons a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    /* Seção Blog */
+    #blog-section {
+      margin-top: 30px;
+      border-top: 1px solid #555;
+      padding-top: 20px;
+    }
+    #blog-section h2 {
+      margin-bottom: 10px;
+    }
+    #blog-posts {
+      text-align: left;
+      margin: 0 auto;
+      width: 80%;
+    }
+    /* Chatbot Styles */
+    #chatbot {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 1px solid #555;
+      border-radius: 5px;
+      color: white;
+      overflow: hidden;
+    }
+    #chatbot-header {
+      background-color: #4CAF50;
+      padding: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #chatbot-messages {
+      height: 150px;
+      overflow-y: auto;
+      padding: 5px;
+      text-align: left;
+    }
+    #chatbot-input {
+      width: 100%;
+      border: none;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    /* Cursor Personalizado */
+    #cursor-personalizado {
+      width: 20px;
+      height: 20px;
+      background-color: yellow;
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      transition: transform 0.1s;
+    }
+    /* Partículas de fundo */
+    .particulas {
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      background-color: yellow;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: flutuar 5s infinite;
+    }
+    @keyframes flutuar {
+      0% { transform: translateY(0px); opacity: 0.5; }
+      50% { transform: translateY(-50px); opacity: 1; }
+      100% { transform: translateY(0px); opacity: 0.5; }
+    }
+    /* Contêiner e transição de conteúdo */
+    #entradaNome {
+      display: block;
+    }
+    #conteudoPrincipal {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    /* Controles de tema e acessibilidade */
+    #theme-toggle {
+      margin-bottom: 20px;
+    }
+    #theme-toggle button {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cursor personalizado -->
+  <div id="cursor-personalizado"></div>
+  
+  <!-- Chatbot -->
+  <div id="chatbot">
+    <div id="chatbot-header" onclick="toggleChatbot()">ChatBot</div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+  </div>
+  
+  <!-- Tela de entrada (nome do usuário) -->
+  <div id="entradaNome">
+    <h1>Bem-vindo!</h1>
+    <p>Digite seu nome para continuar:</p>
+    <input type="text" id="nomeUsuario" placeholder="Seu nome...">
+    <button onclick="entrar()">Entrar</button>
+  </div>
+  
+  <!-- Conteúdo principal -->
+  <div id="conteudoPrincipal">
+    <div id="theme-toggle">
+      <button onclick="toggleTheme()">Alternar Tema</button>
+      <button onclick="increaseFont()">A+</button>
+      <button onclick="decreaseFont()">A-</button>
+    </div>
+    <p id="boasVindas"></p>
+    <h1>Gerador de Textos Humanizados</h1>
+    <p>Digite um tema e receba um texto natural sobre ele:</p>
+    <textarea id="tema" placeholder="Digite um tema..."></textarea><br>
+    <button onclick="gerarTexto()">Gerar Texto</button>
+    <div id="resultado"></div>
+    <div id="score-container">Pontuação: <span id="score">0</span></div>
+    <div id="share-buttons"></div>
+    <!-- Seção Blog -->
+    <div id="blog-section">
+      <h2>Blog</h2>
+      <button onclick="toggleBlog()">Mostrar/Esconder Blog</button>
+      <div id="blog-posts" style="display: none;">
+        <h3>Post 1: Novidades em Medicina</h3>
+        <p>Conteúdo do blog post sobre as últimas novidades em medicina.</p>
+        <h3>Post 2: Dicas para Estudantes</h3>
+        <p>Algumas dicas úteis para estudantes do ensino médio e técnico.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Alternância de Tema e Acessibilidade
+    if(localStorage.getItem("theme") === "light"){
+      document.body.classList.add("light");
+    }
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      if(document.body.classList.contains("light")){
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    }
+    
+    let fontSize = 16;
+    function increaseFont(){
+      fontSize += 2;
+      document.body.style.fontSize = fontSize + "px";
+    }
+    function decreaseFont(){
+      fontSize = Math.max(12, fontSize - 2);
+      document.body.style.fontSize = fontSize + "px";
+    }
+    function toggleBlog(){
+      var blogPosts = document.getElementById("blog-posts");
+      blogPosts.style.display = blogPosts.style.display === "none" ? "block" : "none";
+    }
+    
+    // Chatbot básico
+    function toggleChatbot(){
+      var chatbotMessages = document.getElementById("chatbot-messages");
+      chatbotMessages.style.display = (chatbotMessages.style.display === "none" || !chatbotMessages.style.display) ? "block" : "none";
+    }
+    document.getElementById("chatbot-input").addEventListener("keypress", function(e){
+      if(e.key === "Enter"){
+        let msg = this.value.trim();
+        if(msg !== ""){
+          addChatMessage("Você: " + msg);
+          // Resposta simulada do chatbot
+          setTimeout(() => addChatMessage("ChatBot: Ainda estou aprendendo..."), 1000);
+          this.value = "";
+        }
+      }
+    });
+    function addChatMessage(message) {
+      var chatMessages = document.getElementById("chatbot-messages");
+      var p = document.createElement("p");
+      p.innerText = message;
+      chatMessages.appendChild(p);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Gamificação: Controle de Pontuação
+    let score = 0;
+    function addScore(points){
+      score += points;
+      document.getElementById("score").innerText = score;
+    }
+    
+    // Cursor personalizado
+    document.addEventListener("mousemove", function(e) {
+      let cursor = document.getElementById("cursor-personalizado");
+      if (cursor) {
+        cursor.style.left = e.pageX + "px";
+        cursor.style.top = e.pageY + "px";
+      }
+    });
+    
+    // Partículas no fundo
+    function criarParticulas() {
+      for (let i = 0; i < 20; i++) {
+        let particula = document.createElement("div");
+        particula.classList.add("particulas");
+        particula.style.left = Math.random() * window.innerWidth + "px";
+        particula.style.top = Math.random() * window.innerHeight + "px";
+        particula.style.animationDuration = (Math.random() * 5 + 3) + "s";
+        document.body.appendChild(particula);
+      }
+    }
+    criarParticulas();
+    
+    // Tela de entrada com nome e som de boas-vindas
+    function entrar() {
+      let nome = document.getElementById("nomeUsuario").value.trim();
+      if (nome) {
+        document.getElementById("entradaNome").style.display = "none";
+        let conteudo = document.getElementById("conteudoPrincipal");
+        conteudo.style.display = "block";
+        setTimeout(() => conteudo.style.opacity = "1", 50);
+        document.getElementById("boasVindas").innerHTML = 
+          `Olá, <span style="color: white;">${nome}</span>! Escolha um tema para gerar um texto:`;
+        new Audio('https://www.fesliyanstudios.com/play-mp3/387').play();
+      } else {
+        alert("Por favor, digite seu nome antes de continuar.");
+      }
+    }
+    
+    // Geração de textos com os temas solicitados
+    function gerarTexto() {
+      const temas = {
+        "medicina": ["A medicina é fundamental para a saúde da população, proporcionando tratamentos inovadores."],
+        "técnico de enfermagem": ["O técnico de enfermagem desempenha um papel essencial no cuidado dos pacientes, contribuindo para o funcionamento adequado dos hospitais."],
+        "biologia": ["A biologia estuda os seres vivos e suas interações, proporcionando uma visão ampla sobre a vida."],
+        "química": ["A química transforma a matéria e revela as leis que regem a natureza, do cotidiano às tecnologias avançadas."],
+        "física": ["A física descreve os fenômenos do universo, desde a mecânica clássica até a teoria quântica."],
+        "história": ["A história nos ensina sobre os acontecimentos que moldaram a sociedade e o mundo moderno."],
+        "geografia": ["A geografia estuda os espaços e as interações entre os humanos e o meio ambiente, explicando a dinâmica dos territórios."],
+        "matemática": ["A matemática é a linguagem do universo, essencial para a compreensão de fenômenos naturais e tecnológicos."],
+        "português": ["O domínio da língua portuguesa é fundamental para uma comunicação eficaz e expressiva."],
+        "literatura": ["A literatura enriquece a imaginação, permitindo explorar diferentes perspectivas e emoções."],
+        "sociologia": ["A sociologia analisa as relações sociais e as estruturas que compõem a sociedade, promovendo o entendimento do comportamento humano."],
+        "filosofia": ["A filosofia estimula o pensamento crítico e reflexivo sobre a existência e o conhecimento."],
+        "redação": ["A redação é uma ferramenta importante para expressar ideias de forma clara e estruturada."],
+        "tecnologia": ["A tecnologia está sempre evoluindo, transformando a maneira como vivemos e nos conectamos."],
+        "meio ambiente": ["Preservar o meio ambiente é um compromisso essencial para garantir a sustentabilidade e o equilíbrio do planeta."],
+        "saúde pública": ["A saúde pública busca garantir o acesso a serviços de saúde de qualidade para toda a população."],
+        "educação": ["A educação é a base para o desenvolvimento humano, abrindo caminhos para o conhecimento e o progresso."]
+      };
+
+      let tema = document.getElementById("tema").value.toLowerCase().trim();
+      let resultado = document.getElementById("resultado");
+
+      if (temas[tema]) {
+        let textos = temas[tema];
+        let textoAleatorio = textos[Math.floor(Math.random() * textos.length)];
+        resultado.innerHTML = `<p>${textoAleatorio}</p>`;
+        addScore(5); // Incrementa a pontuação
+
+        // Botão para compartilhar (exemplo: Twitter)
+        document.getElementById("share-buttons").innerHTML =
+          `<a href='https://twitter.com/intent/tweet?text=${encodeURIComponent(textoAleatorio)}' target='_blank'>Compartilhar no Twitter</a>`;
+      } else {
+        resultado.innerHTML = "<p>Desculpe, ainda não temos um texto para esse tema.</p>";
+      }
+    }
+  </script>
+</body>
+</html>
