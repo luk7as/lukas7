@@ -1,0 +1,72 @@
+function calcularSoma(){
+var valor1 = 0;
+var valor2 = 0;
+var valor3 = 0;
+
+valor1 = Number(prompt("informe o valor 1"));
+valor2 = Number(prompt("informe o valor 2"));
+valor3 = Number(prompt("informe o valor 3"));
+
+var Soma =( valor1 + valor2 + valor3);
+console.log (`o resultado e ${Soma}.`);
+}
+
+function calcularMultiplicação(){
+    var valor1 = 0;
+    var valor2 = 0;
+    var valor3 = 0;
+    
+    valor1 = Number(prompt("informe o valor 1"));
+    valor2 = Number(prompt("informe o valor 2"));
+    valor3 = Number(prompt("informe o valor 3"));
+    
+    var Multiplicação =( valor1 * valor2 * valor3);
+    console.log (`o resultado e ${Multiplicação}.`);
+}
+
+function calcularSubtração(){
+    var valor1 = 0;
+    var valor2 = 0;
+    var valor3 = 0;
+    
+    valor1 = Number(prompt("informe o valor 1"));
+    valor2 = Number(prompt("informe o valor 2"));
+    valor3 = Number(prompt("informe o valor 3"));
+    
+    var Subtração =( valor1 - valor2 - valor3);
+    console.log (`o resultado e ${Subtração}.`);
+}
+
+function calcularDivisão(){
+    var valor1 = 0;
+    var valor2 = 0;
+   
+    valor1 = Number(prompt("informe o valor 1"));
+    valor2 = Number(prompt("informe o valor 2"));
+    
+    var Divisão =( valor1 / valor2);
+    console.log (`o resultado e ${Divisão}.`);
+}
+
+
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Lucas Pereira">
+    <meta name="keywords" content="html,css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+</head>
+<body>  
+    <h1> Calculadora</h1>
+    <button onclick="calcularSoma()"> Somar </button>
+    <button onclick="calcularMultiplicação()"> Multiplicar </button>
+    <button onclick="calcularSubtração()"> Subtrair </button>
+    <button onclick="calcularDivisão()"> Dividir </button>
+
+
+     <script src="cwb.js"> </script>
+</body>
+</html>
