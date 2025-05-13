@@ -1,0 +1,85 @@
+/* 
+
+function Nome(){
+...codigo
+}
+
+function RecebeValores(nomeUsuario){
+console,log(nomeUsuario);
+}
+
+*/
+
+function RecebeValores(nomeAluno, turmaAluno) {
+    console.log(`O aluno ${nomeAluno} é da turma ${turmaAluno}.`);
+}
+
+function Somar(valor1, valor2) {
+    const x = valor1 + valor2;
+    return x;
+}
+function multiplicar(valor1, valor2) {
+    const x = valor1 * valor2;
+    return x;
+}
+
+function calcular(valor1, valor2) {
+    const resultado = valor1 + valor2;
+    console.log(` A soma dos numeros ${valor1} + ${valor2} é = ${resultado}.`);
+}
+
+function calcularSoma() {
+    var valor1 = 0;
+    var valor2 = 0;
+    valor1 = Number(prompt("informe o valor 1"));
+    valor2 = Number(prompt("informe o valor 2"));
+
+    var soma = multiplicar(valor1, valor2);
+
+    console.log(` ${valor1}  ${valor2} é = ${resultado}.`);
+}
+
+function calcularMedia(valor1, Valor2){
+ return (n1 + n2) / 2;
+}
+
+function validarTextoVazio(){
+    const texto= prompt("informa aqui seu texto");
+    if(texto != "" ){
+console.log("Vazio, informe o texto");
+    }
+else{
+    console.log(texto);
+ }
+}
+
+function validarValor(){
+const texto = prompt("escreve seu numero");
+if (isNaN(texto)== true ){
+console.log("não é um numero")
+}
+else{
+    const numero = Number(texto);
+if((numero >= 1) && (numero<=10)){
+confirm.log("valor valido");
+}
+else{
+    console.log("valor invalido");
+}
+}
+}
+
+function validarNumero(){
+    const texto = prompt("escreve seu numero");
+    const numero = Number(texto);
+if((numero >= 1) && (numero<=10)){
+confirm.log("valor valido");
+}
+
+if(valor % 2 == 0){
+    console.log("é par");
+}
+    else{
+        console.log("é impar");
+    }
+}
