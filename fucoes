@@ -1,0 +1,40 @@
+/* 
+
+function Nome(){
+...codigo
+}
+
+function RecebeValores(nomeUsuario){
+console,log(nomeUsuario);
+}
+
+*/
+
+function RecebeValores(nomeAluno, turmaAluno) {
+    console.log(`O aluno ${nomeAluno} é da turma ${turmaAluno}.`);
+}
+
+function Somar(valor1, valor2) {
+    const x = valor1 + valor2;
+    return x;
+}
+function multiplicar(valor1, valor2) {
+    const x = valor1 * valor2;
+    return x;
+}
+
+function calcular(valor1, valor2) {
+    const resultado = valor1 + valor2;
+    console.log(` A soma dos numeros ${valor1} + ${valor2} é = ${resultado}.`);
+}
+
+function calcularSoma() {
+    var valor1 = 0;
+    var valor2 = 0;
+    valor1 = Number(prompt("informe o valor 1"));
+    valor2 = Number(prompt("informe o valor 2"));
+
+    var resultado = multiplicar(valor1, valor2);
+
+    console.log(` ${valor1}  ${valor2} é = ${resultado}.`);
+}
