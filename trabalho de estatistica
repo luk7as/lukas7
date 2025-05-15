@@ -1,0 +1,71 @@
+function calcularMedidasDescritivas() {
+    let entrada = prompt("Digite os valores separados por vírgula:");
+    if (!entrada) {
+        alert("Nenhum valor inserido.");
+        return;
+    }
+
+    let dados = entrada.split(",").map(Number).filter(n => !isNaN(n));
+
+    if (dados.length === 0) {
+        alert("Nenhum número válido inserido.");
+        return;
+    }
+
+    // Média
+    let soma = dados.reduce((a, b) => a + b, 0);
+    let media = soma / dados.length;
+
+    // Mediana
+    dados.sort((a, b) => a - b);
+    let mediana;
+    let meio = Math.floor(dados.length / 2);
+    if (dados.length % 2 === 0) {
+        mediana = (dados[meio - 1] + dados[meio]) / 2;
+    } else {
+        mediana = dados[meio];
+    }
+
+    // Variância amostral
+    let variancia = dados.reduce((acc, val) => acc + Math.pow(val - media, 2), 0) / (dados.length - 1);
+
+    // Desvio padrão
+    let desvioPadrao = Math.sqrt(variancia);
+
+    // Coeficiente de variação
+    let coeficiente = (desvioPadrao / media) * 100;
+
+    // Homogêneo ou Heterogêneo
+    let tipo = coeficiente < 30 ? "Homogêneo" : "Heterogêneo";
+
+    // Exibir resultados
+    let resultado = 
+        "RESULTADOS:\n" +
+        "-----------------------------\n" +
+        `Média Aritmética: ${media.toFixed(2)}\n` +
+        `Mediana: ${mediana.toFixed(2)}\n` +
+        `Variância Amostral: ${variancia.toFixed(2)}\n` +
+        `Desvio Padrão: ${desvioPadrao.toFixed(2)}\n` +
+        `Coeficiente de Variação: ${coeficiente.toFixed(2)}%\n` +
+        `Classificação: ${tipo}`;
+
+    alert(resultado);
+}
+
+// Executa a função
+calcularMedidasDescritivas();
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu site</title>
+</head>
+<body>
+     <h1> Calculadora</h1>
+
+     <script src="contas.js"> </script>
+</body>
+</html>
