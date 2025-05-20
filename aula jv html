@@ -1,0 +1,33 @@
+function validarFormulario(nome, inputNota1,inputNota2){
+if(innome.value ==){
+    return false;
+}
+if (innerHeight.value == ""|| isNaN(inn1.value)){
+    return false;
+}
+if(inputNota2.value == "" || isNaN(inn2.value)){
+    return false;
+}
+
+}
+
+function salvar(){
+    const inputNome = document.querySelector("#txt-nome")
+    const inputNota1 = document.querySelector("#textNota1")
+    const inputNota2 = document.querySelector("#textNota2")
+    const inputResultado = document.querySelector("#divResultado")
+    const mediaMinimaaprovacao = 7.0
+
+    const n1 = Number (inputNota1.value)
+    const n2 = Number (inputNota2.value)
+    const media = (n1 + n2) / 2;
+    const reprovado = media < mediaMinimaaprovacao;
+    let situacao = "aprovado"
+    let classeSituacao = "aprovado"
+    if(reprovado){
+        situacao = "reprovado"
+        classeSituacao = "reprovado"
+       }
+       let textoSituacao = `media: ${media}. Situação: ${situacao}` ;
+        let htmlSituacao = `<div class`${classeSituacao}`>${textoSituacao}
+    }
