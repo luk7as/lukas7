@@ -1,0 +1,37 @@
+let i = 0;
+while (i < 1000){ // condicao
+if(i % 5 == 0) {
+    console.log(i);
+    document.querySelector(`#paragrafo`).innerHTML += `<p> Esse numero e multiplo de 5: ${i} </p>`;
+
+}
+i++; // incremento
+}
+// para - for 
+// for (inicio;condicao;incremento;) {}
+for(let i = 0;i < 1000;i++){
+if(i % 5 == o){
+    divPrgf.innerHTML += `<p>${i}</p>`;
+}
+} 
+function gerarParagrafos() {
+    // Pega o valor informado
+    const qtd = parseInt(document.getElementById("quantidade").value);
+    const saida = document.getElementById("saida");
+
+    // Limpa conteúdo anterior
+    saida.innerHTML = "";
+
+    // Verifica se o valor é válido
+    if (isNaN(qtd) || qtd < 1) {
+      saida.innerHTML = "<p>Por favor, digite um número válido.</p>";
+      return;
+    }
+
+    // Cria e adiciona os parágrafos
+    for (let i = 1; i <= qtd; i++) {
+      const p = document.createElement("p");
+      p.textContent = `Este é o parágrafo número ${i}.`;
+      saida.appendChild(p);
+    }
+}
