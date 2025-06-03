@@ -1,0 +1,23 @@
+function salvar(){
+    const nome = prompt("nome")
+    const turma = prompt("turma")
+    const periodo = prompt("periodo")
+    const nota1text = prompt("nota1")
+    const nota2text = prompt("nota2")
+
+    const nota1 = Number (nota1text)
+    const nota2 = Number(nota2text)
+    const media = Number(nota1 + nota2/ 2);
+
+let aluno = {
+    "nome": nome,
+    "turma": turma,
+    "periodo": periodo,
+    "nota1B": nota1,
+    "nota2b": nota2,
+    "media": media,
+    "aprovado": true
+    };
+    console.log (aluno);
+    console.log (`aluno`);
+    }
