@@ -1,0 +1,29 @@
+function carregarAlunos() {
+  axios.get('/alunos.json')
+    .then(function (response) {
+      const alunos = response.data;
+
+      console.log("--for");
+      for (let i = 0; i < alunos.length; i++) {
+        console.log(alunos[i].nome);
+      }
+
+      console.log("--forEach");
+      alunos.forEach(aluno => {
+        console.log(aluno.nome);
+      });
+    })
+    .catch(function (error) {
+      console.error("Erro ao carregar os alunos:", error);
+    });
+}
+
+function bucasrCep(){
+    const cep = prompt("cep");
+    axios.get(`https://brasilapi.com.br/api/cep/v1/{cep}${}`)
+    .then(function(response){
+    console.log(response.data);
+
+    .catch(function(error){
+        
+    }
